@@ -1,8 +1,8 @@
-import { habitComponent } from './habitComponent.js';
-import { getHabitList, getCheckList } from './getLocalStorage.js';
-import { setEventToCheckList } from './setCheckList.js';
+import { habitComponent } from "./habitComponent.js";
+import { getHabitList, getCheckList } from "./getLocalStorage.js";
+import { setEventToCheckList } from "./setCheckList.js";
 
-const habitsHTML = document.querySelector('#habit_container');
+const habitsHTML = document.querySelector("#habits");
 
 export function render() {
   const habitList = getHabitList();
@@ -12,7 +12,7 @@ export function render() {
     return;
   }
 
-  habitsHTML.innerHTML = '';
+  habitsHTML.innerHTML = "";
 
   habitList.forEach((habit, index) => {
     const habitElement = habitComponent(habit, checkList[index]);
