@@ -1,12 +1,12 @@
-import { getHabitList } from './getLocalStorage.js';
-import { render } from './render.js';
+import { getHabitList } from "./getLocalStorage.js";
+import { render } from "./render.js";
 
-const btn = document.querySelector('.btn');
-const input = document.querySelector('#input');
+const btn = document.querySelector(".btn");
+const input = document.querySelector("#input");
 
 btn.onclick = () => addNew();
 
-input.addEventListener('keyup', (event) => {
+input.addEventListener("keyup", (event) => {
   if (event.keyCode === 13) {
     addNew();
   }
@@ -22,13 +22,13 @@ function add(newHabit) {
   const habitList = getHabitList();
 
   if (habitList && habitList.includes(newHabit)) {
-    alert('Habit exists');
+    alert("Habit exists");
     return;
   }
 
   const newList = habitList ? [...habitList, newHabit] : [newHabit];
 
-  localStorage.setItem('habits', JSON.stringify(newList));
-
+  localStorage.setItem("habits", JSON.stringify(newList));
+  input.value = "";
   render();
 }
